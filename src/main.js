@@ -24,8 +24,14 @@ function getConfig(request) {
   connectorConfig.newTextInput()
     .setId('url')
     .setName('Enter the URL of your CSV')
-    .setHelpText('e.g. https://api.site.com/api/data.json')
+    .setHelpText('e.g. https://api.site.com/api/data.csv')
     .setPlaceholder('https://');
+  
+  connectorConfig.newTextInput()
+    .setId('http_headers')
+    .setName('HTTP headers')
+    .setHelpText('Optional. Should be a JSON object, eg. {"Authentication":"Basic xxxxxxxx"}.')
+    .setPlaceholder('');
   
   connectorConfig.newSelectSingle()
     .setId('delimiter')
@@ -50,9 +56,12 @@ function getCSVData(request, delimiter) {
   if (!request.configParams.url || !request.configParams.url.match(/^https?:\/\/.+$/g)) {
     sendUserError("Input error: Invalid URL");
   }
-  var params = {
-    headers: JSON.parse(request.configParams.http_headers)
-  };
+  var params = {};
+  if (request.configParams.http_headers) {
+    params = {
+      headers: JSON.parse(request.configParams.http_headers)
+    };
+  }
   var response = UrlFetchApp.fetch(request.configParams.url, params);
   var content = response.getContentText();
   if (!content) {
