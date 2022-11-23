@@ -1,6 +1,9 @@
 {
   "timeZone": "Europe/Paris",
   "dependencies": {},
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/script.external_request"
+  ],
   "dataStudio": {
     "name": "Fetch CSV",
     "logoUrl": "https://raw.githubusercontent.com/TVS-Bruno/fetch-csv/master/fetch-csv-logo.jpg",
@@ -9,8 +12,10 @@
     "addonUrl": "https://github.com/TVS-Bruno/fetch-csv",
     "supportUrl": "https://github.com/TVS-Bruno/fetch-csv/issues",
     "shortDescription": "Fetch data from a CSV",
-    "description": "This connector lets users query data from a CSV with the possibility to chose the delimiter and a text qualifier",
+    "description": "This connector lets users query data from a CSV with the possibility to chose the delimiter",
     "authType": ["NONE"],
     "feeType": ["FREE"]
-  }
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
 }
