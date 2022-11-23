@@ -14,17 +14,9 @@ The 'Fetch CSV' Community Connector supports the following delimiter:
 -   Semicolon
 -   Tabulation
 
-## Supported text qualifier
-
-The 'Fetch CSV' Community Connector supports the following text qualifier:
-
--   No text qualifier
--   Simple quote
--   Double quote
-
 ## Deploy the connector
 
 You can deploy the connector yourself in your own project.
 
--   Follow the [deployment guide](../deploy.md) for Datastudio Community
+-   Follow the [deployment guide](https://developers.google.com/looker-studio/connector/deploy) for Datastudio Community
     Connectors. Be sure to copy all files.
